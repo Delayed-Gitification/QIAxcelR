@@ -36,6 +36,10 @@ Run
 df2 <- preprocess_dataframe(df)
 ```
 
+The "corrected_index" scales the position between 0 and 1 between the lower and upper markers. 
+The "corrected_value" is the baseline-corrected signal
+The "index_for_plotting" is a rounded version of the corrected index that should be used for plotting with ggplot
+
 ### Plot the data
 
 We can use geom_tile() from ggplot to plot the data in a way that looks like the normal QIAxcel output
