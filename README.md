@@ -107,3 +107,9 @@ molar_ratios <- processed_df %>%
   pivot_wider(names_from = band, values_from = molar_value) %>%
   mutate(molar_fraction_lower_band = lower_band/(lower_band+upper_band))
 ```
+
+Alternatively just use the wrapper function for this:
+```
+molar_ratios <- find_molar_ratios(processed_df, lower_band_pos = 0.58, lower_band_width = 0.02, lower_band_nts = 300,
+                        upper_band_pos= 0.715, upper_band_width = 0.035, upper_band_nts = 500)
+```
