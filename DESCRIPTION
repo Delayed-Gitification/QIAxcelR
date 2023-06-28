@@ -1,6 +1,6 @@
-Package: YourPackageName
+Package: QIAxcelR
 Version: 0.1.0
-Title: Description of Your Package
+Title: For analysing the raw data "csv" (actually tsv) output of QIAxcel
 Authors@R: 
-    person("Your", "Name", email = "your@email.com", role = c("aut", "cre"))
-Description: A brief description of your package.
+    person("Oscar", "Wilkins", email = "oscar.wilkins@crick.ac.uk", role = c("aut", "cre"))
+Description: For analysing QIAxcel raw data
