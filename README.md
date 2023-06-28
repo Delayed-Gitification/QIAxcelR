@@ -35,3 +35,16 @@ Run
 ```
 df2 <- preprocess_dataframe(df)
 ```
+
+### Plot the data
+
+We can use geom_tile() from ggplot to plot the data in a way that looks like the normal QIAxcel output
+
+```
+ggplot(df2, 
+       aes(y = index_for_plotting, fill = corrected_value, x = unique_id)) +
+  geom_tile() +
+  theme_classic() +
+  scale_fill_gradient(low = "white", high = "black") +
+  ylim(0,1)
+```
