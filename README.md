@@ -85,3 +85,25 @@ ratios <- processed_df %>%
   pivot_wider(names_from = band, values_from = integrated_area) %>%
   mutate(fraction_lower_band = lower_band/(lower_band+upper_band))
 ```
+
+We can also calculate a molar ratio rather than just an intensity ratio.
+
+For example:
+```
+molar_ratios <- processed_df %>%
+  mutate(band = case_when(abs(corrected_index - 0.58) < 0.02 ~ "lower_band",
+                          abs(corrected_index - 0.715) < 0.035 ~ "upper_band",
+                          T ~ "ignore")) %>%
+  mutate(product_length = case_when(band == "upper_band" ~ 500,
+                                    band == "lower_band" ~ 300,
+                                    T ~ 0)) %>%
+  group_by(unique_id, band) %>%
+  mutate(integrated_area = sum(corrected_value)) %>%
+  distinct(unique_id, band, integrated_area, product_length) %>%
+  mutate(molar_value = integrated_area / product_length) %>%
+  filter(band != "ignore") %>%
+  ungroup() %>%
+  dplyr::select(-product_length, -integrated_area) %>%
+  pivot_wider(names_from = band, values_from = molar_value) %>%
+  mutate(molar_fraction_lower_band = lower_band/(lower_band+upper_band))
+```
