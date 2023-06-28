@@ -48,3 +48,18 @@ ggplot(df2,
   scale_fill_gradient(low = "white", high = "black") +
   ylim(0,1)
 ```
+
+### Tweaking positions of upper and lower markers
+
+To tweak the positions of a given sample, make a dataframe with three columns:
+1. unique_id - this should match the ids in the processed df eg "D8" or "A11"
+2. multiply - how much to multiply each position
+3. shift - how much to shift (i.e. translate) each position
+
+You only need to add samples that need to be tweaked
+
+Then run (assuming your new dataframe is called tweak_df)
+
+```
+processed_df <- tweak_positions(processed, tweak_df)
+```
