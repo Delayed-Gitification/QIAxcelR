@@ -7,6 +7,19 @@ Tools for analysing QIAxcel in R
 
 Install python and pybaseline and scipy
 
+If you need to build a new version of the package, change the working directory to the QIAxcelR directory and run
+
+```
+library(devtools)
+build()
+```
+
+To install the package, run:
+```
+install.packages("/your/path/QIAxcelR_0.1.0.tar.gz", repos = NULL, type = "source")
+```
+(obviously if the name or version is different then change this)
+
 In R, run this before any of the other functions:
 
 ```
