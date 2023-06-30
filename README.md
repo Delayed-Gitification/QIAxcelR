@@ -7,6 +7,19 @@ Tools for analysing QIAxcel in R
 
 Install python and pybaseline and scipy
 
+If you need to build a new version of the package, change the working directory to the QIAxcelR directory and run
+
+```
+library(devtools)
+build()
+```
+
+To install the package, run:
+```
+install.packages("/your/path/QIAxcelR_0.1.0.tar.gz", repos = NULL, type = "source")
+```
+(obviously if the name or version is different then change this)
+
 In R, run this before any of the other functions:
 
 ```
@@ -19,6 +32,8 @@ scipy <- import("scipy")
 ```
 
 ### Parse the data
+
+First, export your raw data from the QIAxcel software using the raw csv option.
 
 The output from the QIAxcel is weird. Use this function to get it into a "tidy" format
 
@@ -35,6 +50,10 @@ Run
 ```
 df2 <- preprocess_dataframe(df)
 ```
+
+The "corrected_index" scales the position between 0 and 1 between the lower and upper markers. 
+The "corrected_value" is the baseline-corrected signal.
+The "index_for_plotting" is a rounded version of the corrected index that should be used for plotting with ggplot.
 
 ### Plot the data
 
