@@ -33,6 +33,8 @@ scipy <- import("scipy")
 
 ### Parse the data
 
+First, export your raw data from the QIAxcel software using the raw csv option.
+
 The output from the QIAxcel is weird. Use this function to get it into a "tidy" format
 
 ```
