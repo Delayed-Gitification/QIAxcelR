@@ -1,6 +1,7 @@
 preprocess_dataframe <- function(df, prominence=0.2){
   processed_list <- df %>%
     filter(!is.na(value2)) %>%
+    mutate(value2 = as.numeric(value2)) %>%
     mutate(unique_id = paste0(Row, sample)) %>%
     split(.$unique_id) %>%
     map(~preprocess_data(.$value2))
