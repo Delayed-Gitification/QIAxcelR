@@ -55,6 +55,8 @@ The "corrected_index" scales the position between 0 and 1 between the lower and 
 The "corrected_value" is the baseline-corrected signal.
 The "index_for_plotting" is a rounded version of the corrected index that should be used for plotting with ggplot.
 
+If you have trouble with this, first coerce value2 to as.numeric()
+
 ### Plot the data
 
 We can use geom_tile() from ggplot to plot the data in a way that looks like the normal QIAxcel output
