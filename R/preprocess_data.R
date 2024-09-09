@@ -1,9 +1,8 @@
 preprocess_data <- function(values, prominence=0.2){
   
-  values2 <- correct_baseline(values)
+  values2 <- as.numeric(correct_baseline(values))
   
   peaks <- find_peaks(values2, prominence = prominence)
-  peaks
   
   lower_marker = find_local_max(values, min(peaks))
   upper_marker = find_local_max(values, max(peaks))
